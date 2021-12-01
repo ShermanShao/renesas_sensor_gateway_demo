@@ -1,0 +1,10 @@
+Import('RTT_ROOT')
+Import('rtconfig')
+from building import *
+
+cwd = GetCurrentDir()
+CPPPATH = [cwd, ]
+src = Glob('*.c')
+
+group = DefineGroup('demo', src, depend = ['PKG_USING_ALI_IOTKIT'], CPPPATH = CPPPATH)
+Return('group')
