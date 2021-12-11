@@ -248,8 +248,9 @@ struct rt_sensor_data sensor_read_data(char *name)
     if(!sensor)
     {
         HAL_Printf("\n\tdevice find faild!\n");
+        return data;
     }
-    
+
     result = rt_device_open(sensor, RT_DEVICE_FLAG_RDONLY);
     if (result != RT_EOK)
     {
@@ -474,7 +475,7 @@ void linkkit_demo(void)
         rt_thread_mdelay(1000);
     }
 
-    rt_thread_t tid = rt_thread_create("linkkit", linkkit_entry, NULL, 6144, 20, 20);
+    rt_thread_t tid = rt_thread_create("linkkit", linkkit_entry, NULL, 10240, 20, 20);
     if(tid)
     {
         rt_thread_startup(tid);

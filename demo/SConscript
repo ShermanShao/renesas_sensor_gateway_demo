@@ -6,5 +6,5 @@ cwd = GetCurrentDir()
 CPPPATH = [cwd, ]
 src = Glob('*.c')
 
-group = DefineGroup('Applications', src, depend = [''], CPPPATH = CPPPATH)
+group = DefineGroup('Applications', src, depend = ['PKG_USING_ALI_IOTKIT'], CPPPATH = CPPPATH)
 Return('group')
