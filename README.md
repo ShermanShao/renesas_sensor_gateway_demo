@@ -14,23 +14,27 @@
 ## 实际运行效果
 1、在 msh 中输入`linkkit_demo` 命令创建并启动 demo 线程
 
-![image-20211130111948709](image/image-20211130111948709.png)
+![image-20211130111948709](image/image-20211130111948709.png) 
 
 2、在云平台的设备调试页面查看实时刷新的数据。
 
-![image-20211130111052259](image/image-20211130111052259.png)
+![image-20211130111052259](image/image-20211130111052259.png) 
 
 ## 准备工作
 
 - [RT-Thread studio v2.1.4](https://download-sh-cmcc.rt-thread.org:9151/www/studio/download/RT-Thread%20Studio-v2.1.4-setup-x86_64_20211215-1700.exe)
 - Renesas 开发板支持包
-  ![image-20211216225122952](image\sdk-bsp.png)
+
+![image-20211216225122952](image/sdk-bsp.png) 
 - JLINK v7.50
-  ![image-20211217104550311](image\jlink下载.png)
+
+![image-20211217104550311](image/jlink下载.png) 
 - GNU_Tools_for_ARM_Embedded_Processors v6.3.1 或 v10.2.1，默认配置为 v10.2.1
-  ![image-20211223152205419](image/gcc.png)
+
+![image-20211223152205419](image/gcc.png) 
 - [RASC](https://github.com/renesas/fsp/releases)（可选）：版本 fsp v3.1.0、rasc v2021-04
-  ![image-20211217012025247](image\rasc下载.png)
+
+![image-20211217012025247](image/rasc下载.png) 
 - 阿里云：[生活物联网平台](https://living.aliyun.com/)
 - [RA6M4-CPK 开发板](https://www2.renesas.cn/cn/zh/products/microcontrollers-microprocessors/ra-cortex-m-mcus/cpk-ra6m4-evaluation-board)
 - USB-TTL：连接 UART7 （TX:P613; RX:P614）**波特率 115200**
@@ -59,38 +63,40 @@
 |                   |   SDA    |    P511    |   0x050B    |
 
 - 开发板示意图
-  ![cpk-ra6m4.png](image/cpk-ra6m4.png)
+
+![cpk-ra6m4.png](image/cpk-ra6m4.png) 
 
 - 实物连接图
-  ![image-20211130205400622](image/image-20211130205400622.png)
-  
+
+![image-20211130205400622](image/image-20211130205400622.png) 
+
 - 连接 UART7 （TX:P613; RX:P614）,**波特率 115200**。
 
-  ![image-20211217110528698](image\uart7.png)
+![image-20211217110528698](image/uart7.png) 
 
 3. 打开 RT-Thread studio，创建开发板示例工程
 
-    ![image-20211216141944291](image\新建工程1.png)
+![image-20211216141944291](image/新建工程1.png) 
 
-    ![image-20211216142019209](image\新建工程2.png)
+![image-20211216142019209](image/新建工程2.png) 
 
-    ![image-20211216141818046](image\新建工程.png)
+![image-20211216141818046](image/新建工程.png) 
 
 
 4. GCC 版本建议使用 v10.2.1，可以在 studio 的包管理器中下载并配置工具链路径
 
-![image-20211223154338231](image/gcc-下载.png)
+![image-20211223154338231](image/gcc-下载.png) 
 
  > studio 中的路径：
  > \repo\Extract\ToolChain_Support_Packages\ARM\GNU_Tools_for_ARM_Embedded_Processors\10.2.1\bin
 
-![image-20211215194633235](image/工具链配置.png)
+![image-20211215194633235](image/工具链配置.png) 
 
 5. 配置 JLINK 路径
 
-![image-20211215225748084](image/jlink_config.png)
+![image-20211215225748084](image/jlink_config.png) 
 
-![image-20211215225559811](image/dbg_config.png)
+![image-20211215225559811](image/dbg_config.png) 
 
 6. 编译、下载，验证运行结果
   - 查看系统运行情况
@@ -108,33 +114,39 @@
 7. 连云配置
 
   - 在[云平台](https://living.aliyun.com/)创建项目，创建完成后点击项目进入配置
-    ![image-20211201110843504](image/image-20211201110843504.png)
+
+![image-20211201110843504](image/image-20211201110843504.png) 
 
   - 在新建的项目中创建产品
-      ![image-20211201111106434](image/image-20211201111106434.png)
+
+![image-20211201111106434](image/image-20211201111106434.png) 
 
   - 进入设备调试页面选择将页面拉到最下方选择 “未认证模组”
-    ![image-20211201112028255](image/image-20211201112028255.png)
+
+![image-20211201112028255](image/image-20211201112028255.png) 
 
   - 新增测试设备 “renesas_test”
-    ![image-20211201112419422](image/image-20211201112419422.png)
+
+![image-20211201112419422](image/image-20211201112419422.png) 
 
   - 查看设备三元组信息
-    ![image-20211201112857831](image/image-20211201112857831.png)
+
+![image-20211201112857831](image/image-20211201112857831.png) 
 
   - 在 menuconfig 中开启 ali-iotkit 软件包，将新创建的产品三元组信息填入配置项中。保存配置信息，编译、下载工程。
 
   > 注意：三元组信息是一机一密，所以不能有两个以上的设备使用同一组三元组信息。
-  > ![image-20211201110539948](image/image-20211201110539948.png)
+  > ![image-20211201110539948](image/image-20211201110539948.png) 
 
   - 修改代码中连接热点的 SSID 和 password，启动 demo 程序可自动连接。**注意：SSID 需要使用全小写**
-    ![image-20211217120001220](image\修改ssid.png)
+
+![image-20211217120001220](image/修改ssid.png) 
 
 8. 编译、下载，验证传感器网关数据上报功能。
   >注意：暂不支持在 Studio 上 DEBUG，请直接下载程序验证。(12-27)
   >
   >命令行输入 `linkkit_demo` 命令，启动网关 demo 程序。在设备详情页查看实时上报信息
-  >![image-20211130111052259](image/image-20211130111052259.png)
+  >![image-20211130111052259](image/image-20211130111052259.png) 
 
 
 ## 扩展内容
@@ -142,9 +154,9 @@
 
 - 配置 RASC 路径
 
-![image-20211216143948414](image\rasc-1.png)
+![image-20211216143948414](image/rasc-1.png) 
 
-![image-20211216144014033](image\rasc-2.png)
+![image-20211216144014033](image/rasc-2.png) 
 
 - 使用 RASC 结合 setting 配置工程，开启其他外设功能，可参考文档：[使用瑞萨FSP配置工具](https://gitee.com/rtthread/rt-thread/blob/master/bsp/ra6m4-cpk/docs)
 
