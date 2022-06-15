@@ -32,7 +32,7 @@
 - GNU_Tools_for_ARM_Embedded_Processors v6.3.1 或 v10.2.1，默认配置为 v10.2.1
 
 ![image-20211223152205419](image/gcc.png) 
-- [RASC](https://github.com/renesas/fsp/releases)（可选）：版本 fsp v3.1.0、rasc v2021-04
+- [RASC](https://github.com/renesas/fsp/releases/tag/v3.5.0)：版本 **setup_fsp_v3_5_0_rasc_v2021-10.exe**
 
 ![image-20211217012025247](image/rasc下载.png) 
 - 阿里云：[生活物联网平台](https://living.aliyun.com/)
@@ -164,9 +164,9 @@
 1. 配置所需要的软件包、组件、外设驱动
 
 - 创建 CPK-RA6M4 模板工程
-- 添加 [RW007](http://packages.rt-thread.org/detail.html?package=rw007) 软件包，配置说明：[使用瑞萨FSP配置工具](https://gitee.com/rtthread/rt-thread/blob/master/bsp/ra6m4-cpk/docs) RW007 部分。
+- 添加 [RW007](http://packages.rt-thread.org/detail.html?package=rw007) 软件包，配置说明：[使用瑞萨FSP配置工具](https://gitee.com/rtthread/rt-thread/blob/master/bsp/ra6m4-cpk/docs) RW007 部分
 - 添加 [ali-iotkit](http://packages.rt-thread.org/detail.html?package=ali-iotkit) 软件包
-- 修改 cJSON 软件包配置：版本号为 v1.7.14 。
+- 修改 CJSON 软件包配置：**版本号为 v1.7.14** 
 - 添加 ISL29035 传感器软件包
 
 2. 云平台创建产品，将设备的三元组信息配置到工程中
